@@ -8,6 +8,7 @@ const Signup = (props) => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
+<<<<<<< HEAD
         if(credentials.password !== credentials.cpassword){
             props.showalert("Passwords do not match","danger");
             return;
@@ -33,6 +34,29 @@ const Signup = (props) => {
         } catch (error) {
             console.error("Error:", error);
             props.showalert("Failed to connect to server. Please make sure the backend is running.", "danger");
+=======
+        const response = await fetch("http://localhost:5000/api/auth/createuser", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: credentials.name,email: credentials.email, password: credentials.password})
+        });
+        if(credentials.password===credentials.cpassword){
+        const json = await response.json()
+        if(json.success){
+           localStorage.setItem('token',json.authtoken);
+           history('/');
+           props.showalert("Account Created Successfully","success");
+           console.log(json);
+        }
+        else{
+           props.showalert("Invalid Credential","danger");
+        }
+    }
+        else{
+            props.showalert("Invalid Credential","danger");
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
         }
     }
   return (
@@ -50,11 +74,19 @@ const Signup = (props) => {
   </div>
   <div className="form-group  "  >
     <label htmlFor="password"className='form-label '>Password</label>
+<<<<<<< HEAD
     <input type="password" name="password" value={credentials.password} onChange={onChange}  className="form-control " id="password" placeholder="Password" minLength={5} required/>
   </div>
   <div className="form-group  " >
     <label htmlFor="cpassword " className='form-label '>ConfirmPassword</label>
     <input type="password" name="cpassword" value={credentials.cpassword} onChange={onChange}  className="form-control " id="cpassword" placeholder="Password" minLength={5} required/>
+=======
+    <input type="password" name="password" value={credentials.password} onChange={onChange}  className="form-control " id="password" placeholder="Password" minLength={5}required/>
+  </div>
+  <div className="form-group  " >
+    <label htmlFor="cpassword " className='form-label '>ConfirmPassword</label>
+    <input type="password" name="cpassword" value={credentials.cpassword} onChange={onChange}  className="form-control " id="cpassword" placeholder="Password" minLength={5}required/>
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
   </div>
   <button type="submit" className="btn btn-primary" >Submit</button>
 </form>

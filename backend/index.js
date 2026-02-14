@@ -1,5 +1,6 @@
 const connectToMongo= require("./db");
 const express= require('express');
+<<<<<<< HEAD
 var cors = require('cors');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -7,10 +8,14 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const Chat = require('./models/Chat');
 const User = require('./models/User');
+=======
+var cors = require('cors')
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
 
 connectToMongo();
 // console.log("here i am ")
 const app=express()
+<<<<<<< HEAD
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -19,12 +24,15 @@ const io = new Server(server, {
   }
 });
 
+=======
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
 const port= 5000
 app.use(cors())
 app.get('/',(req,res)=>{
     res.send('Hello World')
 })
 app.use(express.json());
+<<<<<<< HEAD
 // Serve static files from uploads directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -143,3 +151,12 @@ process.on('uncaughtException', (err) => {
   console.error('Uncaught Exception:', err);
   process.exit(1);
 });
+=======
+//Available Routes
+app.use('/api/auth',require('./routes/auth'));
+app.use('/api/notes',require('./routes/notes'));
+
+app.listen(port,()=>{
+    console.log("App listening at port 3000");
+})
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4

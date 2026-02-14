@@ -11,7 +11,10 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
+<<<<<<< HEAD
 import Chat from "./components/Chat";
+=======
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
 import NoteState from "./context/Notestate";
 import { useState } from "react";
 function App() {
@@ -33,11 +36,18 @@ function App() {
      <Navbar/>
 <Alert alert={alert}/>
      <Routes>
+<<<<<<< HEAD
           <Route exact path="/" element={<Home showalert={showalert}/>}></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/login" element={<Login showalert={showalert} />}></Route>
           <Route exact path="/signup" element={<Signup  showalert={showalert}/>}></Route>
           <Route exact path="/chat" element={<Chat showalert={showalert} />}></Route>
+=======
+          <Route exact path="/"element={<Home showalert={showalert}/>}></Route>
+          <Route exact path="/about"element={<About />}></Route>
+          <Route exact path="/login"element={<Login showalert={showalert} />}></Route>
+          <Route exact path="/signup"element={<Signup  showalert={showalert}/>}></Route>
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
         </Routes>
         </Router>
         </div>

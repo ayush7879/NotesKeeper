@@ -30,6 +30,7 @@ history('/login');
         <li className="nav-item">
           <Link className={`nav-link ${location.pathname==='/about'?"active":""} `} to="/about">About</Link>
         </li>
+<<<<<<< HEAD
         {localStorage.getItem('token') && (
           <li className="nav-item">
             <Link className={`nav-link ${location.pathname==='/chat'?"active":""} `} to="/chat">
@@ -37,6 +38,8 @@ history('/login');
             </Link>
           </li>
         )}
+=======
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
       </ul>
      
      { !localStorage.getItem('token')?<form className="d-flex"> 

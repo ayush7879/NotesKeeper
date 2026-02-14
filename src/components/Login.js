@@ -9,6 +9,7 @@ const Login = (props) => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
+<<<<<<< HEAD
         try {
             const response = await fetch("http://localhost:5000/api/auth/login", {
                 method: 'POST',
@@ -32,6 +33,26 @@ const Login = (props) => {
             console.error("Error:", error);
             props.showalert("Failed to connect to server. Please make sure the backend is running.", "danger");
         }
+=======
+        const response = await fetch("http://localhost:5000/api/auth/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email: credentials.email, password: credentials.password})
+        });
+        const json = await response.json()
+        if(json.success){
+           localStorage.setItem('token',json.authtoken);
+           props.showalert("Account Login Successfully","success");
+          
+          history('/');
+        }
+        else{
+            props.showalert("Invalid Credential","danger");
+        }
+        console.log(json);
+>>>>>>> 681fd569d3b3d716cf314a41e4d118bce54883f4
     }
   return (
     <div className='container mt-3'>
